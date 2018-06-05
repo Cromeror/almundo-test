@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from "antd"
 import Item from "./Item.comp"
+import Filter from "./Filter.comp"
 
 require('./index.scss')
 const data = require('./data.json')
@@ -13,6 +14,7 @@ class Archive extends Component {
     render() {
         return (
             <Layout.Content className="archive">
+                <Filter />
                 {this.renderItems(data)}
             </Layout.Content>
         );

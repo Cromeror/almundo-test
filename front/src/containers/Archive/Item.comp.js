@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from "antd"
+//utilities
+import { renderStars } from "./utils"
 
 require('./index.scss')
 
@@ -25,7 +27,7 @@ class Item extends Component {
                     {data.name ? data.name : ""}
                 </Col>
                 <Col>
-                    {this.renderStars(data.stars)}
+                    {renderStars(data.stars)}
                 </Col>
                 <Col>
                     {this.renderAmenities(data.amenities)}
@@ -51,20 +53,6 @@ class Item extends Component {
     }
 
     /**
-     * Renderiza n cantidad de estrellas
-     */
-    renderStars = (number = 0) => {
-        let stars = null
-
-        for (let i = 0; i < number; i++) {
-            if (!stars)
-                stars = new Array();
-            stars.push(<div key={`star-${i}`} className="item-ic item-ic-star item-ic-mask-yellow"></div>)
-        }
-        return stars
-    }
-
-    /**
      * Renderiza n cantidad de comodidades
      */
     renderAmenities = (amenities) => {
@@ -79,7 +67,7 @@ class Item extends Component {
             amenitiesRender.push(
                 <div
                     key={`amenities-${amenity}-${idRandom}`}
-                    className={`item-ic item-ic-${amenity} item -ic-mask-gray`}
+                    className={`item-ic item-ic-${amenity} item-ic-mask-gray`}
                 ></div>)
         }
 
