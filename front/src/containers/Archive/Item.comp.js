@@ -19,20 +19,23 @@ class Item extends Component {
                 </div>)
 
         return (
-            <Row className="item-container">
-                <Col>
-                    <img className="item-cover" src={data.image} />
+
+            <Row type="flex" justify="space-around" align="middle" className="item-container">
+                <Col sm={24} md={18}>
+                    <Col>
+                        <img className="item-cover" src={data.image} />
+                    </Col>
+                    <Col className="item-name">
+                        {data.name ? data.name : ""}
+                    </Col>
+                    <Col>
+                        {renderStars(data.stars)}
+                    </Col>
+                    <Col>
+                        {this.__renderAmenities(data.amenities)}
+                    </Col>
                 </Col>
-                <Col className="item-name">
-                    {data.name ? data.name : ""}
-                </Col>
-                <Col>
-                    {renderStars(data.stars)}
-                </Col>
-                <Col>
-                    {this.__renderAmenities(data.amenities)}
-                </Col>
-                <Col className="item-group-rigth">
+                <Col sm={24} md={6} className="item-group-rigth">
                     <Col className="item-group-price">
                         <Col className="item-text">
                             Precio por noche por habitacion
