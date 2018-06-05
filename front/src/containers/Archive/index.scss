@@ -1,0 +1,178 @@
+@import '../colors.scss';
+@import './vars.scss';
+
+.item-container{
+    margin: 10px !important;
+    padding: 10px !important;
+    background-color: white;
+}
+
+.item-cover{
+    min-height: 200px;
+}
+
+.item-name{
+    color: $title-color;
+    font-weight: bold;
+}
+
+.item-text{
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.item-price{
+    color: #df6c33;
+    font-size: 1.8em;
+    text-align: right;
+    #number{
+        font-size: 2em;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.item-btn{
+    width: 100%;
+    color: $btn-color;
+    background-color: $btn-background-color;
+    height: auto;
+    padding: 8px;
+    border: 0px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.item-btn:hover {
+    border: 0px;
+    border-radius: 3px;
+    height: 30px;
+    font-weight: bold;
+    box-shadow: inset 0 0 0 20rem $btn-background-color-hover;
+}
+
+.item-group-rigth{
+    border-top-style: dashed;
+    border-width: 1px;
+}
+
+.item-group-left{
+    padding: 40px 0px;
+}
+
+.item-group-price{
+    margin-top: 16px;
+}
+   
+//Iconos
+.item-ic{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+.item-ic-star{
+    -webkit-mask: url($ic-star) no-repeat 50% 50%;
+    mask: url($ic-star  ) no-repeat 50% 50%;
+}
+
+.item-ic-search{
+    -webkit-mask: url($ic-search) no-repeat 50% 50%;
+    mask: url($ic-search) no-repeat 50% 50%;
+}
+
+.item-ic-bathrobes{
+    -webkit-mask: url($ic-bathrobes) no-repeat 50% 50%;
+    mask: url($ic-bathrobes) no-repeat 50% 50%;
+}
+
+.item-ic-bathtub{
+    -webkit-mask: url($ic-bathtub) no-repeat 50% 50%;
+    mask: url($ic-bathtub) no-repeat 50% 50%;
+}
+
+.item-ic-beach-pool-facilities{
+    -webkit-mask: url($ic-beach-pool-facilities) no-repeat 50% 50%;
+    mask: url($ic-beach-pool-facilities) no-repeat 50% 50%;
+}
+
+.item-ic-beach{
+    -webkit-mask: url($ic-beach) no-repeat 50% 50%;
+    mask: url($ic-beach) no-repeat 50% 50%;
+}
+
+.item-ic-business-center{
+    -webkit-mask: url($ic-business-center) no-repeat 50% 50%;
+    mask: url($ic-business-center) no-repeat 50% 50%;
+}
+
+.item-ic-children-club{
+    -webkit-mask: url($ic-children-club) no-repeat 50% 50%;
+    mask: url($ic-children-club) no-repeat 50% 50%;
+}
+
+.item-ic-coffe-maker{
+    -webkit-mask: url($ic-coffe-maker) no-repeat 50% 50%;
+    mask: url($ic-coffe-maker) no-repeat 50% 50%;
+}
+
+.item-ic-deep-soaking-bathtub{
+    -webkit-mask: url($ic-deep-soaking-bathtub) no-repeat 50% 50%;
+    mask: url($ic-deep-soaking-bathtub) no-repeat 50% 50%;
+}
+
+.item-ic-fitness-center{
+    -webkit-mask: url($ic-fitness-center) no-repeat 50% 50%;
+    mask: url($ic-fitness-center) no-repeat 50% 50%;
+}
+
+.item-ic-garden{
+    -webkit-mask: url($ic-garden) no-repeat 50% 50%;
+    mask: url($ic-garden) no-repeat 50% 50%;
+}
+
+.item-ic-kitchen-facilities{
+    -webkit-mask: url($ic-kitchen-facilities) no-repeat 50% 50%;
+    mask: url($ic-kitchen-facilities) no-repeat 50% 50%;
+}
+
+.item-ic-newspaper{
+    -webkit-mask: url($ic-newspaper) no-repeat 50% 50%;
+    mask: url($ic-newspaper) no-repeat 50% 50%;
+}
+
+.item-ic-nightclub{
+    -webkit-mask: url($ic-nightclub) no-repeat 50% 50%;
+    mask: url($ic-nightclub) no-repeat 50% 50%;
+}
+
+.item-ic-restaurant{
+    -webkit-mask: url($ic-restaurant) no-repeat 50% 50%;
+    mask: url($ic-restaurant) no-repeat 50% 50%;
+}
+
+.item-ic-safety-box{
+    -webkit-mask: url($ic-safety-box) no-repeat 50% 50%;
+    mask: url($ic-safety-box) no-repeat 50% 50%;
+}
+
+.item-ic-separate-bredroom{
+    -webkit-mask: url($ic-separate-bredroom) no-repeat 50% 50%;
+    mask: url($ic-separate-bredroom) no-repeat 50% 50%;
+}
+
+.item-ic-sheets{
+    -webkit-mask: url($ic-sheets) no-repeat 50% 50%;
+    mask: url($ic-sheets) no-repeat 50% 50%;
+}
+
+.item-ic-mask-yellow{
+    background-color: #ffb23a;
+}
+
+.item-ic-mask-gray{
+    background-color: #424242;
+}

@@ -1,1 +1,19 @@
 @import '../../../node_modules/antd/dist/antd.css';
+
+.header{
+  background-color: #004d80;
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/almundo-test-81efb.appspot.com/o/assets%2Fimages%2Flogo-almundo.svg?alt=media&token=f3f5a728-5416-4776-8aec-6721011b7053");
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.container{
+    min-height: 100%;
+}
