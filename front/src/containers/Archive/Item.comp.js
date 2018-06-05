@@ -30,7 +30,7 @@ class Item extends Component {
                     {renderStars(data.stars)}
                 </Col>
                 <Col>
-                    {this.renderAmenities(data.amenities)}
+                    {this.__renderAmenities(data.amenities)}
                 </Col>
                 <Col className="item-group-rigth">
                     <Col className="item-group-price">
@@ -55,8 +55,10 @@ class Item extends Component {
     /**
      * Renderiza n cantidad de comodidades
      */
-    renderAmenities = (amenities) => {
+    __renderAmenities = (amenities) => {
         let amenitiesRender = null;
+        if (!amenities)
+            return amenitiesRender;
 
         for (const amenity of amenities) {
             if (!amenitiesRender)
