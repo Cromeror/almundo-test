@@ -3,7 +3,7 @@ import { Layout } from "antd"
 import Item from "./Item.comp"
 
 require('./index.scss')
-
+const data = require('./data.json')
 
 class Archive extends Component {
     constructor(props) {
@@ -13,9 +13,21 @@ class Archive extends Component {
     render() {
         return (
             <Layout.Content className="archive">
-                <Item />
+                {this.renderItems(data)}
             </Layout.Content>
         );
+    }
+
+    renderItems = (items) => {
+        let itemsRender = null
+        if (Array.isArray(items)) {
+            if (!itemsRender)
+                itemsRender = new Array();
+            for (const item of items) {
+                itemsRender.push(<Item key={`archive-item-${item.id}`} data={item} />)
+            }
+        }
+        return itemsRender;
     }
 };
 

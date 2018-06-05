@@ -8,27 +8,27 @@ class Item extends Component {
         super(props)
     }
 
-    componentWillMount() {
-        const { item } = this.props
-        if (item) {
-            //
-        }
-    }
-
     render() {
+        const { data } = this.props
+        if (!data)
+            return (
+                <div className="item-text">
+                    No hay hoteles
+                </div>)
+
         return (
             <Row className="item-container">
                 <Col>
-                    <img className="item-cover" />
+                    <img className="item-cover" src={data.image} />
                 </Col>
                 <Col className="item-name">
-                    Hotel Stefanos
+                    {data.name ? data.name : ""}
                 </Col>
                 <Col>
-                    {this.renderStars(2)}
+                    {this.renderStars(data.stars)}
                 </Col>
                 <Col>
-                    {this.renderAmenities(3)}
+                    {this.renderAmenities(data.amenities)}
                 </Col>
                 <Col className="item-group-rigth">
                     <Col className="item-group-price">
@@ -38,7 +38,7 @@ class Item extends Component {
                         <Col className="item-price item-text">
                             <Row type="flex" justify="center" align="middle" gutter={12}>
                                 <Col>ARS</Col>
-                                <Col id="number">234</Col>
+                                <Col id="number">{data.price}</Col>
                             </Row>
                         </Col>
                     </Col>
@@ -53,7 +53,7 @@ class Item extends Component {
     /**
      * Renderiza n cantidad de estrellas
      */
-    renderStars = (number) => {
+    renderStars = (number = 0) => {
         let stars = null
 
         for (let i = 0; i < number; i++) {
@@ -67,18 +67,23 @@ class Item extends Component {
     /**
      * Renderiza n cantidad de comodidades
      */
-    renderAmenities = (number) => {
-        let amenities = null,
-            random = Math.random(1 - 999999)//Asigamos un numero random para construir key unicas por cada componente.
+    renderAmenities = (amenities) => {
+        let amenitiesRender = null;
 
-        for (let i = 0; i < number; i++) {
-            if (!amenities)
-                amenities = new Array();
+        for (const amenity of amenities) {
+            if (!amenitiesRender)
+                amenitiesRender = new Array();
+
+            const idRandom = Math.random(1 - 999999)//Asigamos un numero random para construir key unicas por cada componente.
             //Seleccionamos el tipo de comodidad
-
-            amenities.push(<div key={`amenities-${i}-${random}`} className="item-ic item-ic-bathrobes item-ic-mask-gray"></div>)
+            amenitiesRender.push(
+                <div
+                    key={`amenities-${amenity}-${idRandom}`}
+                    className={`item-ic item-ic-${amenity} item -ic-mask-gray`}
+                ></div>)
         }
-        return amenities
+
+        return amenitiesRender
     }
 };
 
