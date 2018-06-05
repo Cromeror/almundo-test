@@ -27,7 +27,9 @@ class Archive extends Component {
     render() {
         return (
             <Layout.Content className="archive">
-                <Filter onSearch={this.__onSearch} />
+                <Filter
+                    onSearch={this.__onSearch}
+                    onStarFilter={this.__onStarFilter} />
                 {this.__renderItems(this.state.items)}
             </Layout.Content>
         );
@@ -38,6 +40,10 @@ class Archive extends Component {
             .then(hotels => {
                 this.setState({ items: hotels.data.data })
             })
+    }
+
+    __onStarFilter = (starsNumber) => {
+        console.log(starsNumber)
     }
 
     __renderItems = (items) => {

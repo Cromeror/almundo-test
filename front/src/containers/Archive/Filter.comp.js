@@ -8,6 +8,19 @@ require('./index.scss')
 class Filter extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            indeterminate: false,
+            selectAll: false,
+            //Permite conoces que estrellas estan seleccionas en el filtro
+            allStars: {
+                1: false,
+                2: false,
+                3: false,
+                4: false,
+                5: false,
+            }
+        }
     }
 
     render() {
@@ -32,6 +45,9 @@ class Filter extends Component {
             onSearch(document.getElementById("searchValue").value)
     }
 
+    /**
+     * Renderiza las opciones de filtro en un componente colapsable
+     */
     __renderFilters = () => {
         return (
             <Row key="filter-name">
@@ -43,7 +59,11 @@ class Filter extends Component {
                             header={this.__buildCollapseHeader("Estrellas", "item-ic-star")}
                             key="filter-star">
                             <Col>
-                                <Checkbox>Todas las estrellas</Checkbox>
+                                <Checkbox
+                                    indeterminate={this.state.indeterminate}
+                                    onChange={this.__onSelectAll}
+                                    checked={this.state.selectAll}
+                                >Todas las estrellas</Checkbox>
                             </Col>
                             {this.__buildCheckBoxStar()}
                         </Collapse.Panel>
@@ -52,6 +72,40 @@ class Filter extends Component {
             </Row>);
     }
 
+
+    __onSelectAll = (e) => {
+        this.setState(prevState => {
+            return {
+                indeterminate: false,
+                selectAll: prevState.indeterminate ? true : e.target.checked,
+                allStars: {
+                    1: true,
+                    2: true,
+                    3: true,
+                    4: true,
+                    5: true,
+                }
+            }
+        });
+    }
+
+    /**
+     * Permite conocer que opcion cambio de estado en el filtro por estrellas.
+     */
+    __onSelectOne = (e, star) => {
+        this.setState(prevState => {
+            const allStars = { ...prevState.allStars }
+            allStars[star] = e.target.checked
+            return {
+                indeterminate: true,
+                allStars
+            }
+        })
+    }
+
+    /**
+     * Construye los checkbox para filtrar por numeros de estrellas.
+     */
     __buildCheckBoxStar = () => {
         let checkboxRender = new Array(),
             idRandom = Math.random(1, 999999)
@@ -59,12 +113,20 @@ class Filter extends Component {
         for (let i = 5; i > 0; i--) {
             checkboxRender.push(
                 <Col key={`container-checkbox-${i}-${idRandom}`}>
-                    <Checkbox key={`checkbox-star-${i}-${idRandom}`}>{renderStars(i, "item-ic-s-small")}</Checkbox>
+                    <Checkbox
+                        key={`checkbox-star-${i}-${idRandom}`}
+                        checked={this.state.allStars[i]}
+                        onChange={(e) => this.__onSelectOne(e, i)}>
+                        {renderStars(i, "item-ic-s-small")}
+                    </Checkbox>
                 </Col>);
         }
         return checkboxRender;
     }
 
+    /**
+     * Construye el formulario de busqueda por nombre.
+     */
     __buildFilterByName = () => {
         return (
             <Collapse.Panel
@@ -86,6 +148,9 @@ class Filter extends Component {
         )
     }
 
+    /**
+     * Permite construir un titulo de cabecera para los diferentes filtros.
+     */
     __buildCollapseHeader = (title = "", iconClass = "") => {
         return (
             <div>
@@ -94,6 +159,9 @@ class Filter extends Component {
             </div>)
     }
 
+    /**
+     * Construye el titulo general de los filtro
+     */
     __buildTitle = () => {
         return (<div className="filter-header-title">{"Filtrar"}</div>)
     }
