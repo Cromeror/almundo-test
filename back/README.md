@@ -1,5 +1,14 @@
 # almundo-back
 
+### Configuración
+En la carpeta **/back/config** se encuentra un archivo **default.json** el cual se deberá configurar la variable *"mongodb": "mongodb://localhost:27017/bd_test"* para poder conectarnos a la Base de datos **bd_test**
+### Ejecutando el backend
+  - Se deben levantar el servicio de *MongoDB*: **sudo service mongod start**
+  - Usando la terminar navegamos hasta la la carpeta **/back** del proyecto.
+  - Ejecuta el comando **npm i**
+  - Despues de esperar la instalación de dependencias, debemos ejecutar el comando **npm run dev**
+  - Luego de esperar deberá aparecer el siguiente mensaje: *info: Feathers application started on http://localhost:XXXX*
+
 > 
 
 ## About
