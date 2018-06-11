@@ -4,8 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App'
 import { store } from '../store/configureStore'
 
-const title = 'My React Webpack Babel Setup using ES6';
-
+const title = 'Almundo';
 
 ReactDOM.render(
   <Provider store={store}>
